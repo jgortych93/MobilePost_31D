@@ -1,0 +1,11 @@
+parcelorder:
+    resource: "@ParcelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+pai_parcel:
+    type: rest
+    prefix: /api
+    resource: "@ParcelBundle/Resources/config/routing.yml"
