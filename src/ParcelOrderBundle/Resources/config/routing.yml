@@ -1,0 +1,7 @@
+parcel_homepage:
+    path:     /
+    defaults: { _controller: ParcelOrderBundle:Default:index }
+pai_parcel_Parcel:
+    type: rest
+    prefix: /v1
+    resource: ParcelOrderBundle\Controller\ParcelOrderController
