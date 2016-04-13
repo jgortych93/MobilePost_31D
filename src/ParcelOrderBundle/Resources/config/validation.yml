@@ -1,0 +1,20 @@
+ParcelBundle\Entity\Parcel:
+    properties:
+        idSender:    
+            - NotBlank: ~
+            - NotNull: ~
+            - Range: min: 1 max: 99999
+            maxMessage: "The idSender value must be smaller or equal to 99999"
+        idReceiver:    
+            - NotBlank: ~
+            - NotNull: ~
+            - Range: min: 1 max: 99999
+            maxMessage: "The idReceiver value must be smaller or equal to 99999"
+        idPostman:    
+            - NotBlank: ~
+            - NotNull: ~
+            - Range: min: 1 max: 99999
+            maxMessage: "The idPostman value must be smaller or equal to 99999"
+        notes:    
+            - Length: min: 1 max: 99999
+            maxMessage: "Your note must be smaller or equal to 99999 signs"            
