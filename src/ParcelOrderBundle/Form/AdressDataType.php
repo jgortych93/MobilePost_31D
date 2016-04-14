@@ -1,14 +1,9 @@
 <?php
-/*wyświetlane liczby zgłoszeń dla adminisratora w parcelorder*/
 namespace ParcelOrderBundle\Form;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use ParcelBundle\Form\ParcelType;
-
-
-class ParcelOrderType extends AbstractType
+class AdressDataType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,12 +12,14 @@ class ParcelOrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tracking',BooleanType::class)
-            ->add('notes')
-            ->add('parcelOrderHash')
-            ->add('parcel',ParcelType::class)
-            ->add('sender',AdressDataType::class)
-            ->add('receiver',AdressDataType::class)
+            ->add('city')
+            ->add('postal_code')
+            ->add('street')
+            ->add('first_name')
+            ->add('last_name')
+            ->add('phone')
+            ->add('email')
+            ->add('weight')
         ;
     }
     
@@ -32,9 +29,8 @@ class ParcelOrderType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ParcelOrderBundle\Entity\ParcelOrder',
-			'csrf_protection' => false
-
+            'data_class' => 'PAI\ParcelBundle\Entity\Parcel',
+            'csrf_protection' => false
         ));
     }
 }

@@ -25,7 +25,7 @@ class ParcelOrderController extends FOSRestController
 				$los=rand($pocz,$kon);
 				
 				$request->request->set('parcelOrderHash',$los);
-				$newParcelOrder = $this→container->get('parcel_rest.parcel_form.handler')
+				$newParcelOrder = $this->container->get('parcel_rest.parcel_form.handler')
 				->post(
 				$request->request->all()
 				);
