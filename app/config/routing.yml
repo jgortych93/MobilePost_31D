@@ -9,3 +9,7 @@ pai_parcel:
     type: rest
     prefix: /api
     resource: "@ParcelBundle/Resources/config/routing.yml"
+pai_parcel_order:
+    type: rest
+    prefix: /po
+    resource: "@ParcelOrderBundle/Resources/config/routing.yml"
