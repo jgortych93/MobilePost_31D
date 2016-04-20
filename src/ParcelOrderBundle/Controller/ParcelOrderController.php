@@ -5,6 +5,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ParcelOrderBundle\Repository\ParcelOrderRepository;
+use ParcelOrderBundle\Resources\config\services;
 
 class ParcelOrderController extends FOSRestController 
 {
@@ -25,7 +26,7 @@ class ParcelOrderController extends FOSRestController
 				$los=rand($pocz,$kon);
 				
 				$request->request->set('parcelOrderHash',$los);
-				$newParcelOrder = $this->container->get('parcel_rest.parcel_form.handler')
+				$newParcelOrder = $this->container->get('parcelorder_rest.parcel_order_form.handler')
 				->post(
 				$request->request->all()
 				);
@@ -34,7 +35,7 @@ class ParcelOrderController extends FOSRestController
 				'id' => $newParcelOrder->getId(),
 				'_format' => $request->get('_format')
 				);
-				return $this->routeRedirectView('api_1_get_parcel', $routeOptions,
+				return $this->routeRedirectView('get_parcels', $routeOptions,
 				Response::HTTP_CREATED);
 			} 
 			catch (InvalidFormException $exception) {
@@ -51,11 +52,11 @@ class ParcelOrderController extends FOSRestController
 
             if (!$parcel) {
                 $statusCode = Response::HTTP_CREATED;
-                $parcel = $this->container->get('parcel_rest.parcel_form.handler')->post($request->request->all());
+                $parcel = $this->container->get('parcelorder_rest.parcel_order_form.handler')->post($request->request->all());
             }
             else {
                 $statusCode = Response::HTTP_NO_CONTENT;
-                $parcel = $this->container->get('parcel_rest.parcel_form.handler')->put($parcel, $request->request->all());
+                $parcel = $this->container->get('parcelorder_rest.parcel_order_form.handler')->put($parcel, $request->request->all());
             }
 
             $routeOptions = array ('id' => $parcel->getId(),

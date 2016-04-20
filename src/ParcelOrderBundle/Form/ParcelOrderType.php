@@ -17,7 +17,7 @@ class ParcelOrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tracking',BooleanType::class)
+            ->add('tracking')
             ->add('notes')
             ->add('parcelOrderHash')
             ->add('parcel',ParcelType::class)

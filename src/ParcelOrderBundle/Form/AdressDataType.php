@@ -19,7 +19,6 @@ class AdressDataType extends AbstractType
             ->add('last_name')
             ->add('phone')
             ->add('email')
-            ->add('weight')
         ;
     }
     
@@ -29,7 +28,7 @@ class AdressDataType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PAI\ParcelBundle\Entity\Parcel',
+            'data_class' => 'ParcelOrderBundle\Entity\AddressData',
             'csrf_protection' => false
         ));
     }

@@ -1,10 +1,11 @@
 services:
-#    parcel.example:
+#    parcelorder.example:
 #        class: ParcelOrderBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
 parameters:
-    parcel_rest.parcel.class: ParcelOrderBundle\Entity\ParcelOrder
+    parcelorder_rest.parcel.class: ParcelOrderBundle\Entity\ParcelOrder
+    
 services:
-    parcel_rest.parcel_form.handler:
-        class: ParcelOrderBundle\Handler\ParcelFormHandler
-        arguments:   ['@doctrine.orm.entity_manager',   %parcel_rest.parcel.class%, '@form.factory', 'ParcelOrderBundle\Form\ParcelOrderType']
+    parcelorder_rest.parcel_order_form.handler:
+        class: ParcelOrderBundle\Handler\ParcelOrderFormHandler
+        arguments:   ['@doctrine.orm.entity_manager',   %parcelorder_rest.parcel.class%, '@form.factory', 'ParcelOrderBundle\Form\ParcelOrderType']

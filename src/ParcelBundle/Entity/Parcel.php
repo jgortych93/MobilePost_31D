@@ -32,16 +32,12 @@ class Parcel implements ParcelInterface
     /**
      * @var int
      *
-     * @ORM\Column(name="parcel_hash", type="integer", unique=true)
+     * @ORM\Column(name="Weight", type="integer")
      */
     
 	private $weight;
 
-	/**
-     * @var double
-     *
-     * @ORM\Column(name="weight", type="double")
-     */
+	
 	 
     /**
      * Get id

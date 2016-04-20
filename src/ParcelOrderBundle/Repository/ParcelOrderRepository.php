@@ -23,4 +23,10 @@ class ParcelOrderRepository extends \Doctrine\ORM\EntityRepository
 		->createQuery("SELECT p FROM ParcelOrderBundle:ParcelOrder p")
 		->getResult();
 	}
+	
+	public function save(\ParcelOrderBundle\Entity\ParcelOrder $parcel) {
+		$em = $this->getEntityManager();
+		$em->persist($parcel);
+		$em->flush();
+	}
 }

@@ -7,8 +7,9 @@ use Symfony\Component\Form\FormFactoryInterface;
 use ParcelOrderBundle\Model\ParcelOrderInterface;
 use ParcelOrderBundle\Form\ParcelOrderType;
 use ParcelOrderBundle\Exception\InvalidFormException;
+use ParcelOrderBundle\Repository\ParcelOrderRepository;
 
-class ParcelFormHandler implements ParcelFormHandlerInterface
+class ParcelOrderFormHandler implements ParcelFormHandlerInterface
 {
 	private $entityClass;
 	private $repository;
@@ -27,7 +28,7 @@ class ParcelFormHandler implements ParcelFormHandlerInterface
         $parcel = $this->createParcel();
         return $this->processForm($parcel, $parameters, 'POST');
     }
-	public function put(ParcelInterface $parcel, array $parameters)
+	public function put(ParcelOrderInterface $parcel, array $parameters)
 	{
 		return $this->processForm($parcel, $parameters, 'PUT');
 	}

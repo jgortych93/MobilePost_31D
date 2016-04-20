@@ -15,19 +15,19 @@ use ParcelBundle\Entity\Parcel;
 class ParcelOrder implements ParcelOrderInterface
 {
     /**
-      * @ORM\OneToOne(targetEntity="ParcelBundle\Entity\Parcel", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="ParcelBundle\Entity\Parcel", inversedBy="parcelOrders",cascade={"persist"})
       * @ORM\JoinColumn(name="parcel_id", referencedColumnName="id")
       */
     protected $parcel;
     
     /**
-      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders",cascade={"persist"})
       * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
       */
     protected $sender;
     
     /**
-      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders",cascade={"persist"})
       * @ORM\JoinColumn(name="receiver_id", referencedColumnName="id")
       */    
     protected $receiver;
@@ -80,7 +80,7 @@ class ParcelOrder implements ParcelOrderInterface
      *
      * @return ParcelOrder
      */
-    public function setParcel(\AppBundle\Entity\Parcel $parcel = null)
+    public function setParcel(\ParcelBundle\Entity\Parcel $parcel = null)
     {
         $this->parcel = $parcel;
 
@@ -104,7 +104,7 @@ class ParcelOrder implements ParcelOrderInterface
      *
      * @return ParcelOrder
      */
-    public function setSender(\AppBundle\Entity\AddressData $sender = null)
+    public function setSender(\ParcelOrderBundle\Entity\AddressData $sender = null)
     {
         $this->sender = $sender;
 
@@ -128,7 +128,7 @@ class ParcelOrder implements ParcelOrderInterface
      *
      * @return ParcelOrder
      */
-    public function setReceiver(\AppBundle\Entity\AddressData $receiver = null)
+    public function setReceiver(\ParcelOrderBundle\Entity\AddressData $receiver = null)
     {
         $this->receiver = $receiver;
 
